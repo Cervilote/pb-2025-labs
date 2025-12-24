@@ -14,9 +14,10 @@ class Character:
         self.max_health = 100
         self.attack = 10
         self.defense = 5
+        self.charisma = 3
         self.inventory = {"healing_potion": 3, "strength_potion": 1}
         self.specialization = ""
-        self.location = "spaceship"
+        self.location = "Опушка леса"
 
     def display_stats(self):
         print(f"\n=== ХАРАКТЕРИСТИКИ {self.name.upper()} ===")
@@ -25,6 +26,7 @@ class Character:
         print(f"Здоровье: {self.health}/{self.max_health}")
         print(f"Атака: {self.attack}")
         print(f"Защита: {self.defense}")
+        print(f"Харизма:{self.charisma}")
         print(f"Раса: {self.specialization}")
         print("Инвентарь:", self.inventory)
 
@@ -61,7 +63,7 @@ class Character:
             if item == "healing_potion":
                 healed = self.heal(30)
                 print(f"Использовано пирожок с вишней. Восстановлено {healed} здоровья.")
-            elif item == "strength_potion":
+            if item == "strength_potion":
                 self.attack += 5
                 print("Использовано пирожок с манго. Атака увеличена на 5 на этот бой.")
             return True
@@ -115,7 +117,7 @@ class Game:
                 "events": ["enemy", "find_item"]
             },
             "Большая золотая комната": {
-                "description": "Высокая радиовышка. Отсюда можно попытаться связаться с Землёй.",
+                "description": "Огромная комната из золота. Здесь могут лежать всякие безделушки и не только.",
                 "connections": ["Заброщенный замок"],
                 "events": ["rest", "treasure"]
             }
@@ -154,11 +156,13 @@ class Game:
         elif choice == "3":
             self.player.specialization = "Тифлинг"
             self.player.defense += 3
+            self.player.charisma += 4
             self.player.inventory["tech_kit"] = 1
         else:
             self.player.specialization = "Гоблин"
             self.player.max_health += 20
             self.player.health += 20
+            self.player.charisma -=3
 
         print(f"\nОтлично! Вы - {self.player.specialization}")
         self.player.display_stats()
@@ -217,6 +221,7 @@ class Game:
             print("1. Атаковать")
             print("2. Использовать предмет")
             print("3. Попытаться уклониться")
+            print("4. Пощадить")
 
             choice = input("> ")
 
@@ -256,7 +261,13 @@ class Game:
                     continue
                 else:
                     print("Уклонение не удалось!")
-
+            elif choice == "4":
+                charm_chance = 10 + (self.player.charisma * 0.5)
+                if random.randint(1,100) <= charm_chance:
+                    print("Вы успешно заговорили зубы")
+                    continue
+                else:
+                    print("Не особо разговорчивый оказался :(")
             else:
                 print("Неверный выбор! Пропускаете ход.")
 
