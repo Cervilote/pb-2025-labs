@@ -1,0 +1,36 @@
+{
+  "records": [
+    {
+      "amount": 8000.0,
+      "category": "Зарплата",
+      "date": "2025-12-24",
+      "description": "cntgtylbz",
+      "type": "income"
+    },
+    {
+      "amount": 3500.0,
+      "category": "Здоровье",
+      "date": "2026-01-22",
+      "description": "степендия",
+      "type": "expense"
+    },
+    {
+      "amount": 12000.0,
+      "category": "Зарплата",
+      "date": "2026-01-22",
+      "description": "папа",
+      "type": "income"
+    },
+    {
+      "amount": 6000.0,
+      "category": "Зарплата",
+      "date": "2004-12-12",
+      "description": "",
+      "type": "income"
+    }
+  ],
+  "custom_categories": {
+    "expense": [],
+    "income": []
+  }
+}
