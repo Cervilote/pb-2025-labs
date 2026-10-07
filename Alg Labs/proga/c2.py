@@ -1,23 +1,32 @@
+import array
+
 v_count, e_count = map(int, input().split())
 
-lst = {i: [] for i in range(v_count)}
+used_dfs = [False] * v_count
+
+lst = [[] for i in range(v_count)]
 
 for _ in range(e_count):
     a, b = map(int, input().split())
-    lst[a-1].append(b-1)
-    lst[b-1].append(a-1)
+    a-=1
+    b-=1
 
-print(lst)
+    lst[a].append(b)
+    lst[b].append(a)
 
-used_dfs = [False] * v_count
-coun=0
+count=0
+
 def dfs(v):
-    used_dfs[v] = True
-    coun=+1
+    stac = array.array('i', [v])
+    while stac:
+        ve = stac.pop()
+        if not used_dfs[ve]:
+            used_dfs[ve] = True
+            stac.extend(i for i in lst[ve] if not used_dfs[i])
 
-    for e in lst[v]:
-        if not used_dfs[e]:
-            dfs(e)
-dfs(0)
-print(used_dfs)
-print(coun)
+for v in range(v_count):
+    if not used_dfs[v]:
+        dfs(v)
+        count += 1
+
+print(count)

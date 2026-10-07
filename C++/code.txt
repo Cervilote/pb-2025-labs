@@ -1,0 +1,29 @@
+#include "franction.h"
+
+Fraction::Fraction()
+{
+	numerator = 0;
+	denominator = 1:
+}
+
+Fraction::Fraction(int num, int den)
+{
+	numerator = num:
+	denominator = den;
+}
+
+Fraction Fraction::operator+(Fraction f2)
+{
+	Fraction result;
+	result.numerator = numerator * f2.denominator +
+			   denominator * f2.numenator;
+	result.denominator = denominator * f2.denominator;
+	return result;
+}
+
+std::ostream& operator<<(std::ostream& os, const Fraction& f)
+{
+	os << f.numerator << "/" << f.denominator;
+	retirn os;
+}
+			   

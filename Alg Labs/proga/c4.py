@@ -1,28 +1,46 @@
-# не ориентированный не взвешенный
+import sys
+from collections import deque
 
-v_count = int(input())
-e_count = int(input())
+v_count, e_count = map(int, sys.stdin.readline().split())
 
-# матрица смежности
-mx = [[0] * v_count for _ in range(v_count)]
-# списки смежности
-lst = {i: [] for i in range(v_count)}
-# список ребер
-edges = []
+# Условие 1: в дереве должно быть V-1 рёбер
+if e_count != v_count - 1:
+    print("NO")
+    sys.exit()
 
+# Особые случаи
+if v_count == 0:
+    print("NO")  # пустой граф не считается деревом
+    sys.exit()
+if v_count == 1:
+    print("YES")  # одна вершина без рёбер — дерево
+    sys.exit()
+
+# Строим список смежности
+adj = [[] for _ in range(v_count)]
 for _ in range(e_count):
-    a, b = map(int, input().split())
+    a, b = map(int, sys.stdin.readline().split())
+    a -= 1
+    b -= 1
+    adj[a].append(b)
+    adj[b].append(a)
 
-    mx[a][b] = mx[b][a] = 1
+# Проверяем связность с помощью BFS
+visited = [False] * v_count
+queue = deque([0])
+visited[0] = True
+count_visited = 1
 
-    lst[a].append(b)
-    lst[b].append(a)
+while queue:
+    v = queue.popleft()
+    for neighbor in adj[v]:  # теперь правильно перебираем соседей
+        if not visited[neighbor]:
+            visited[neighbor] = True
+            count_visited += 1
+            queue.append(neighbor)
 
-    edges.extend([(a, b), (b, a)])
-
-for i in mx:
-    print(*i)
-print()
-print(lst)
-print()
-print(edges)
+# Граф связен, если посетили все вершины
+if count_visited == v_count:
+    print("YES")
+else:
+    print("NO")
