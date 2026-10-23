@@ -1,0 +1,29 @@
+==============================
+Массивы С:
+==============================
+
+1. Статический
+
+Массив a: размер массива: 8, размер элемента: 4
+a = [ 1 2 3 4 5 6 7 8 ]
+
+------------------------------
+
+2. Динамический
+
+Массив b: размер массива: 8, размер элемента: 4
+b = [ -1094795586 -1094795586 -1094795586 -1094795586 -1094795586 -1094795586 -1094795586 -1094795586 -1094795586 -1094795586 ]
+
+------------------------------
+
+=================================================================
+==1345==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 40 byte(s) in 1 object(s) allocated from:
+    #0 0x76a129ad5757 in malloc (/nix/store/xp989kyfg52803fmkzbz5py35jphcpgd-gcc-14.3.0-lib/lib/libasan.so.8+0xfc757)
+    #1 0x58cdaafcf5f1 in main (/home/a.out+0x15f1)
+    #2 0x76a1288c84d7 in __libc_start_call_main (/nix/store/qhw0sp183mqd04x5jp75981kwya64npv-glibc-2.40-66/lib/libc.so.6+0x2a4d7) (BuildId: f3ee1a2f780500f01841f903150efbd97e9f91e2)
+    #3 0x76a1288c859a in __libc_start_main_alias_1 (/nix/store/qhw0sp183mqd04x5jp75981kwya64npv-glibc-2.40-66/lib/libc.so.6+0x2a59a) (BuildId: f3ee1a2f780500f01841f903150efbd97e9f91e2)
+    #4 0x58cdaafcf114 in _start (/home/a.out+0x1114)
+
+SUMMARY: AddressSanitizer: 40 byte(s) leaked in 1 allocation(s).

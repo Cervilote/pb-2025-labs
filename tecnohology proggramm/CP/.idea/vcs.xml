@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/memory-management/Rust/arrays" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/memory-management/Rust/hello" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/memory-management/Rust/store" vcs="Git" />
+  </component>
+</project>

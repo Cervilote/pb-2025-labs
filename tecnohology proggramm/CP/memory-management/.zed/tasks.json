@@ -1,0 +1,29 @@
+[
+  {
+    "label": "Build current file",
+    "command": "bash",
+    "args": [".zed/build.sh"],
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "save": "current",
+    "use_new_terminal": false
+  },
+  {
+    "label": "Run current file",
+    "command": "bash",
+    "args": [".zed/run.sh"],
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "save": "current",
+    "use_new_terminal": false
+  },
+  {
+    "label": "Build & Run current file",
+    "command": "bash",
+    "args": [
+      "-c",
+      ".zed/build.sh && .zed/run.sh"
+    ],
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "save": "current",
+    "use_new_terminal": false
+  }
+]
