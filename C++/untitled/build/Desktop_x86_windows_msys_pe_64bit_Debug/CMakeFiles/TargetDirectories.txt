@@ -1,0 +1,7 @@
+C:/C++/untitled/build/Desktop_x86_windows_msys_pe_64bit_Debug/CMakeFiles/untitled.dir
+C:/C++/untitled/build/Desktop_x86_windows_msys_pe_64bit_Debug/CMakeFiles/edit_cache.dir
+C:/C++/untitled/build/Desktop_x86_windows_msys_pe_64bit_Debug/CMakeFiles/rebuild_cache.dir
+C:/C++/untitled/build/Desktop_x86_windows_msys_pe_64bit_Debug/CMakeFiles/list_install_components.dir
+C:/C++/untitled/build/Desktop_x86_windows_msys_pe_64bit_Debug/CMakeFiles/install.dir
+C:/C++/untitled/build/Desktop_x86_windows_msys_pe_64bit_Debug/CMakeFiles/install/local.dir
+C:/C++/untitled/build/Desktop_x86_windows_msys_pe_64bit_Debug/CMakeFiles/install/strip.dir
